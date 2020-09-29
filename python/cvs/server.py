@@ -1,6 +1,6 @@
 from aiohttp import web
-import cvs.backend.sdk.api
-import cvs.backend.sdk.ws
+import cvs.sdk.api
+import cvs.sdk.ws
 
 
 class WebApplication(web.Application):
@@ -9,8 +9,8 @@ class WebApplication(web.Application):
 
     def __init__(self, options):
         super().__init__(logger=logging.root)
-        self.add_subapp(f"/v1{options.api_uri}", cvs.backend.sdk.api.WebApplication())
-        self.add_subapp(f"/v1{options.ws_uri}", cvs.backend.sdk.ws.WebApplication(next_url=options.janus))
+        self.add_subapp(f"{options.api_uri}/v1", cvs.sdk.api.WebApplication())
+        self.add_subapp(f"{options.ws_uri}/v1", cvs.sdk.ws.WebApplication(next_url=options.janus))
 
 
 if __name__ == '__main__':
