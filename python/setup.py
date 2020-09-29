@@ -11,6 +11,8 @@ settings = {
     'setup_requires': ['setuptools-vcs-version'],
     'packages': find_namespace_packages(),
     'install_requires': [
+        'aiohttp==3.6.2',
+        'configargparse'
     ]
 }
 
