@@ -4,6 +4,7 @@ from sqlalchemy import ForeignKey, func
 
 Base = declarative_base()
 
+
 class User(Base):
     """ User account
     """
@@ -16,6 +17,7 @@ class User(Base):
     password = Column(String, nullable=False)
     expired_at = Column(DateTime)
 
+
 class RegToken(Base):
     """ Registration confirm token
     """
@@ -25,8 +27,9 @@ class RegToken(Base):
     token = Column(String)
     confirmed_at = Column(DateTime)
 
+
 class Session(Base):
-    """ Video session data
+    """ Video session
     """
     __tablename__ = 'session'
     id = Column(String, primary_key=True)
