@@ -23,9 +23,11 @@ class RegToken(Base):
     """
     __tablename__ = 'reg_token'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    email = Column(String, index=True, nullable=False)
-    token = Column(String)
+    email = Column(String, nullable=False)
+    token = Column(String, index=True, nullable=False)
     confirmed_at = Column(DateTime)
+    expired_at = Column(DateTime, nullable=False)
+
 
 
 class Session(Base):
